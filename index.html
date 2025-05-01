@@ -1,129 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Job Listings</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #007bff;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 20px;
-    }
-    .job-card {
-      background: #fff;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    }
-    .job-title {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
-    }
-    .company-name {
-      font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 10px;
-    }
-    .job-location,
-    .salary,
-    .company-rating,
-    .application-stats {
-      font-size: 1rem;
-      margin-bottom: 5px;
-      color: #666;
-    }
-    .application-stats span {
-      margin-right: 15px;
-    }
-    .apply-button {
-      display: inline-block;
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-    .apply-button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .job-card {
+            background-color: white;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .job-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .company-info {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .job-details {
+            font-size: 1rem;
+            color: #666;
+        }
+        .application-stats {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #333;
+        }
+        .apply-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .apply-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Job Listings</h1>
-  </header>
-  <div class="container">
-    <!-- Job listings will be generated here by JavaScript -->
-  </div>
-  <script>
-    // Get a reference to the container div
-    const container = document.querySelector(".container");
-    // Sample list of locations
-    const locations = [
-      "Bangalore, India",
-      "Pune, India",
-      "Chennai, India",
-      "Mumbai, India",
-      "Delhi, India"
-    ];
-
-    // Initialize a variable to hold HTML content for all jobs
-    let allJobsHTML = "";
-
-    for (let i = 0; i < 50; i++) {
-      // Generate details for each job
-      const title = `Job Title ${i + 1}`;
-      const company = `Company ${i + 1}`;
-      const location = locations[i % locations.length];
-      const salary = `₹${(i + 1) * 100000} - ₹${(i + 1) * 120000} per year`;
-      // Generate a random rating between 3.5 and 5.0 (one decimal place)
-      const rating = (Math.random() * (5 - 3.5) + 3.5).toFixed(1);
-      // Generate random application stats
-      const applied = Math.floor(Math.random() * (2000 - 100 + 1)) + 100; // between 100 and 2000
-      const gotInterview = Math.floor(
-        applied * (Math.random() * (0.5 - 0.1) + 0.1)
-      );
-      const gotJob = Math.floor(
-        gotInterview * (Math.random() * (0.5 - 0.1) + 0.1)
-      );
-
-      // Construct the HTML for a single job card
-      const jobCardHTML = `
+    <header>
+        <h1>Job Listings</h1>
+    </header>
+    <div class="container">
+        <!-- Job Listing Example -->
         <div class="job-card">
-          <div class="job-title">${title}</div>
-          <div class="company-name">${company}</div>
-          <div class="job-location">Location: ${location}</div>
-          <div class="salary">Salary: ${salary}</div>
-          <div class="company-rating">Rating: ${rating} / 5</div>
-          <div class="application-stats">
-            <span>Applied: ${applied}</span>
-            <span>Got Interview: ${gotInterview}</span>
-            <span>Got Job: ${gotJob}</span>
-          </div>
-          <a href="#" class="apply-button">Apply Now</a>
+            <div class="job-title">Software Engineer</div>
+            <div class="company-info">Company: Tech Innovators Pvt. Ltd. | Location: Bangalore, India</div>
+            <div class="job-details">Rating: 4.5/5 | Salary: ₹10,00,000 - ₹15,00,000 per year</div>
+            <div class="application-stats">
+                Applied: 1,200 | Interviews: 300 | Hired: 75
+            </div>
+            <a href="#" class="apply-button">Apply Now</a>
         </div>
-      `;
-      // Append the job card HTML to the overall content
-      allJobsHTML += jobCardHTML;
-    }
 
-    // Insert the generated job cards into the container element
-    container.innerHTML = allJobsHTML;
-  </script>
+        <div class="job-card">
+            <div class="job-title">Data Analyst</div>
+            <div class="company-info">Company: Insight Analytics | Location: Pune, India</div>
+            <div class="job-details">Rating: 4.2/5 | Salary: ₹8,00,000 - ₹12,00,000 per year</div>
+            <div class="application-stats">
+                Applied: 900 | Interviews: 200 | Hired: 50
+            </div>
+            <a href="#" class="apply-button">Apply Now</a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-title">UX Designer</div>
+            <div class="company-info">Company: Creative Minds | Location: Hyderabad, India</div>
+            <div class="job-details">Rating: 4.7/5 | Salary: ₹7,00,000 - ₹10,00,000 per year</div>
+            <div class="application-stats">
+                Applied: 1,000 | Interviews: 250 | Hired: 60
+            </div>
+            <a href="#" class="apply-button">Apply Now</a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-title">Cloud Architect</div>
+            <div class="company-info">Company: Cloud Innovate | Location: Chennai, India</div>
+            <div class="job-details">Rating: 4.6/5 | Salary: ₹15,00,000 - ₹20,00,000 per year</div>
+            <div class="application-stats">
+                Applied: 800 | Interviews: 150 | Hired: 45
+            </div>
+            <a href="#" class="apply-button">Apply Now</a>
+        </div>
+
+        <div class="job-card">
+            <div class="job-title">Digital Marketing Specialist</div>
+            <div class="company-info">Company: Brand Builders | Location: Delhi, India</div>
+            <div class="job-details">Rating: 4.3/5 | Salary: ₹5,00,000 - ₹8,00,000 per year</div>
+            <div class="application-stats">
+                Applied: 1,500 | Interviews: 400 | Hired: 90
+            </div>
+            <a href="#" class="apply-button">Apply Now</a>
+        </div>
+    </div>
 </body>
 </html>
