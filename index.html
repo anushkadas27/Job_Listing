@@ -65,56 +65,40 @@
         <h1>Job Listings</h1>
     </header>
     <div class="container">
-        <!-- Job Listing Example -->
-        <div class="job-card">
-            <div class="job-title">Software Engineer</div>
-            <div class="company-info">Company: Tech Innovators Pvt. Ltd. | Location: Bangalore, India</div>
-            <div class="job-details">Rating: 4.5/5 | Salary: ₹10,00,000 - ₹15,00,000 per year</div>
-            <div class="application-stats">
-                Applied: 1,200 | Interviews: 300 | Hired: 75
-            </div>
-            <a href="#" class="apply-button">Apply Now</a>
-        </div>
+        <!-- Generating 50 job cards dynamically -->
+        <script>
+            const container = document.querySelector('.container');
+            const locations = ["Bangalore, India", "Pune, India", "Chennai, India", "Hyderabad, India", "Mumbai, India"];
+            const companies = ["Tech Innovators Pvt. Ltd.", "Cloud Solutions Corp.", "Brand Builders Ltd.", "Insight Analytics", "Creative Minds"];
+            const titles = ["Software Engineer", "Data Scientist", "UX Designer", "Cloud Architect", "Digital Marketing Specialist"];
+            
+            let jobCardsHTML = "";
 
-        <div class="job-card">
-            <div class="job-title">Data Analyst</div>
-            <div class="company-info">Company: Insight Analytics | Location: Pune, India</div>
-            <div class="job-details">Rating: 4.2/5 | Salary: ₹8,00,000 - ₹12,00,000 per year</div>
-            <div class="application-stats">
-                Applied: 900 | Interviews: 200 | Hired: 50
-            </div>
-            <a href="#" class="apply-button">Apply Now</a>
-        </div>
+            for (let i = 0; i < 50; i++) {
+                const title = titles[i % titles.length];
+                const company = companies[i % companies.length];
+                const location = locations[i % locations.length];
+                const rating = (Math.random() * (5 - 3.5) + 3.5).toFixed(1); // Random rating between 3.5 and 5.0
+                const salary = `₹${(i + 1) * 100000} - ₹${(i + 1) * 120000} per year`;
+                const applied = Math.floor(Math.random() * 2000) + 100; // Random applied between 100 and 2000
+                const interviews = Math.floor(applied * (Math.random() * 0.5 + 0.1)); // Random interviews
+                const hired = Math.floor(interviews * (Math.random() * 0.5 + 0.1)); // Random hires
 
-        <div class="job-card">
-            <div class="job-title">UX Designer</div>
-            <div class="company-info">Company: Creative Minds | Location: Hyderabad, India</div>
-            <div class="job-details">Rating: 4.7/5 | Salary: ₹7,00,000 - ₹10,00,000 per year</div>
-            <div class="application-stats">
-                Applied: 1,000 | Interviews: 250 | Hired: 60
-            </div>
-            <a href="#" class="apply-button">Apply Now</a>
-        </div>
+                jobCardsHTML += `
+                    <div class="job-card">
+                        <div class="job-title">${title}</div>
+                        <div class="company-info">Company: ${company} | Location: ${location}</div>
+                        <div class="job-details">Rating: ${rating} / 5 | Salary: ${salary}</div>
+                        <div class="application-stats">
+                            Applied: ${applied} | Interviews: ${interviews} | Hired: ${hired}
+                        </div>
+                        <a href="#" class="apply-button">Apply Now</a>
+                    </div>
+                `;
+            }
 
-        <div class="job-card">
-            <div class="job-title">Cloud Architect</div>
-            <div class="company-info">Company: Cloud Innovate | Location: Chennai, India</div>
-            <div class="job-details">Rating: 4.6/5 | Salary: ₹15,00,000 - ₹20,00,000 per year</div>
-            <div class="application-stats">
-                Applied: 800 | Interviews: 150 | Hired: 45
-            </div>
-            <a href="#" class="apply-button">Apply Now</a>
-        </div>
-
-        <div class="job-card">
-            <div class="job-title">Digital Marketing Specialist</div>
-            <div class="company-info">Company: Brand Builders | Location: Delhi, India</div>
-            <div class="job-details">Rating: 4.3/5 | Salary: ₹5,00,000 - ₹8,00,000 per year</div>
-            <div class="application-stats">
-                Applied: 1,500 | Interviews: 400 | Hired: 90
-            </div>
-            <a href="#" class="apply-button">Apply Now</a>
-        </div>
+            container.innerHTML = jobCardsHTML;
+        </script>
     </div>
 </body>
 </html>
